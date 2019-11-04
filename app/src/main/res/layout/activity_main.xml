@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Nama"
+        android:text="@string/nama"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/editNama"
@@ -22,15 +22,15 @@
         android:id="@+id/tvNIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="NIP"
+        android:text="@string/nip"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editNIP"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintHorizontal_bias="0.907"
@@ -40,30 +40,102 @@
 
     <EditText
         android:id="@+id/editNama"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/editNIP"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNIP" />
 
     <Button
+        android:id="@+id/btnSimpan"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/simpan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnTampilkan" />
+
+    <Button
         android:id="@+id/btnTampilkan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/tampilkan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:text="Tampilkan"
-        app:layout_constraintEnd_toStartOf="@+id/btnSimpan"
+        android:layout_marginEnd="92dp"
+        android:contentDescription="@string/date_button"
+        android:src="@drawable/ic_date_range_black_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/editNama"
+        app:layout_constraintTop_toBottomOf="@+id/editNama" />
+
+    <TextView
+        android:id="@+id/tvTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/tanggal_lahir"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/date_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvNama"
+        app:layout_constraintTop_toBottomOf="@+id/tvNama" />
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/dateFormat"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDate"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editNama"
         app:layout_constraintTop_toBottomOf="@+id/editNama" />
 
-    <Button
-        android:id="@+id/btnSimpan"
+    <TextView
+        android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Simpan"
-        app:layout_constraintEnd_toEndOf="@+id/editNama"
-        app:layout_constraintTop_toBottomOf="@+id/editNama" />
+        android:layout_marginTop="36dp"
+        android:text="@string/status_perkawinan"
+        app:layout_constraintStart_toStartOf="@+id/tvTanggal"
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
+
+    <RadioGroup
+        android:id="@+id/grupStatus"
+        android:layout_width="241dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/status"
+        app:layout_constraintTop_toBottomOf="@+id/date_text">
+
+        <RadioButton
+            android:id="@+id/belumKawin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/belum_kawin" />
+
+        <RadioButton
+            android:id="@+id/Kawin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kawin" />
+
+        <RadioButton
+            android:id="@+id/Cerai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cerai" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

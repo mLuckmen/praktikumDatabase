@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">PraktikDatabase</string>
+    <string name="nama">Nama</string>
+    <string name="nip">NIP</string>
+    <string name="tampilkan">Tampilkan</string>
+    <string name="simpan">Simpan</string>
+    <string name="open_date_picker">Open Date Picker</string>
+    <string name="date_button">Date Button</string>
+    <string name="dateFormat">DD/MM/YYYY</string>
+    <string name="status_perkawinan">Status Perkawinan</string>
+    <string name="belum_kawin">Belum Kawin</string>
+    <string name="kawin">Kawin</string>
+    <string name="cerai">Cerai</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
 </resources>

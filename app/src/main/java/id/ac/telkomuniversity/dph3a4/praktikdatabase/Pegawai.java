@@ -5,6 +5,7 @@ public class Pegawai {
     private String name;
     private int nip;
     private String date;
+    private String status;
 
     public int getId() {
         return id;
@@ -36,5 +37,13 @@ public class Pegawai {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

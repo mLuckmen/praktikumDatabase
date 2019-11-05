@@ -36,7 +36,8 @@ public class DatabasePegawai extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY," +
                 "nip INTEGER UNIQUE," +
                 "nama TEXT," +
-                "tglLahir TEXT);";
+                "tglLahir TEXT," +
+                "status TEXT);";
         sqLiteDatabase.execSQL(createTable);
     }
 
@@ -54,6 +55,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
         cv.put("nip", pegawai.getNip());
         cv.put("nama", pegawai.getName());
         cv.put("tglLahir", pegawai.getDate());
+        cv.put("status", pegawai.getStatus());
         db.insert("pegawai", null, cv);
         db.close();
     }
@@ -71,6 +73,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
         cv.put("nip", pegawai.getNip());
         cv.put("nama", pegawai.getName());
         cv.put("tglLahir", pegawai.getDate());
+        cv.put("status", pegawai.getStatus());
         db.update("pegawai", cv,
                 "nip = " + String.valueOf(pegawai.getNip()),
                 null);
@@ -89,6 +92,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
                 pegawai.setNip(cursor.getInt(1));
                 pegawai.setName(cursor.getString(2));
                 pegawai.setDate(cursor.getString(3));
+                pegawai.setStatus(cursor.getString(4));
                 employees.add(pegawai);
             }while (cursor.moveToNext());
         }

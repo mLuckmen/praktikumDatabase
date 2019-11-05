@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     Button saveButton, showButton;
     TextView dateText;
     ImageButton btnDate;
+    RadioGroup radioStatusGrup;
+    RadioButton radioStatusBtn;
 
 
     @Override
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 showDatePickerDialog();
             }
         });
+
+        radioStatusGrup = findViewById(R.id.grupStatus);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,9 +84,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     private void saveData() {
         Pegawai p = new Pegawai();
+        int selectedId = radioStatusGrup.getCheckedRadioButtonId();
+        radioStatusBtn = findViewById(selectedId);
+
         p.setNip(Integer.valueOf(nipEdit.getText().toString()));
         p.setName(nameEdit.getText().toString());
         p.setDate(dateText.getText().toString());
+        p.setStatus(radioStatusBtn.getText().toString());
 
         DatabasePegawai db = new DatabasePegawai(this);
         db.createPegawai(p);
@@ -98,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         List<Pegawai> pegawaiList = db.getAllPegawai();
         for (Pegawai p : pegawaiList) {
-            Log.i("DB", String.format("Nama Pegawai : %s, NIP : %d, Lahir : %s",
-                    p.getName(), p.getNip(), p.getDate()));
+            Log.i("DB", String.format("Nama Pegawai : %s, NIP : %d, Lahir : %s, Status : %s",
+                    p.getName(), p.getNip(), p.getDate(), p.getStatus()));
         }
     }
 }

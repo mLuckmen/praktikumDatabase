@@ -4,6 +4,7 @@ public class Pegawai {
     private int id;
     private String name;
     private int nip;
+    private String date;
 
     public int getId() {
         return id;
@@ -27,5 +28,13 @@ public class Pegawai {
 
     public void setNip(int nip) {
         this.nip = nip;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

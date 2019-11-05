@@ -35,7 +35,8 @@ public class DatabasePegawai extends SQLiteOpenHelper {
         String createTable = "CREATE TABLE pegawai(" +
                 "id INTEGER PRIMARY KEY," +
                 "nip INTEGER UNIQUE," +
-                "nama TEXT);";
+                "nama TEXT," +
+                "tglLahir TEXT);";
         sqLiteDatabase.execSQL(createTable);
     }
 
@@ -52,6 +53,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("nip", pegawai.getNip());
         cv.put("nama", pegawai.getName());
+        cv.put("tglLahir", pegawai.getDate());
         db.insert("pegawai", null, cv);
         db.close();
     }
@@ -68,6 +70,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("nip", pegawai.getNip());
         cv.put("nama", pegawai.getName());
+        cv.put("tglLahir", pegawai.getDate());
         db.update("pegawai", cv,
                 "nip = " + String.valueOf(pegawai.getNip()),
                 null);
@@ -85,6 +88,7 @@ public class DatabasePegawai extends SQLiteOpenHelper {
                 pegawai.setId(cursor.getInt(0));
                 pegawai.setNip(cursor.getInt(1));
                 pegawai.setName(cursor.getString(2));
+                pegawai.setDate(cursor.getString(3));
                 employees.add(pegawai);
             }while (cursor.moveToNext());
         }

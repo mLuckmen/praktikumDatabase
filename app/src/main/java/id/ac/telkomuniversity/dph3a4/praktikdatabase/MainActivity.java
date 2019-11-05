@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         Pegawai p = new Pegawai();
         p.setNip(Integer.valueOf(nipEdit.getText().toString()));
         p.setName(nameEdit.getText().toString());
+        p.setDate(dateText.getText().toString());
 
         DatabasePegawai db = new DatabasePegawai(this);
         db.createPegawai(p);
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     private void cleanFields(){
         nipEdit.setText("");
         nameEdit.setText("");
+        dateText.setText("DD/MM/YYYY");
     }
 
     private void printDataToLog() {
@@ -96,8 +98,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         List<Pegawai> pegawaiList = db.getAllPegawai();
         for (Pegawai p : pegawaiList) {
-            Log.i("DB", String.format("Nama Pegawai : %s, NIP : %d",
-                    p.getName(), p.getNip()));
+            Log.i("DB", String.format("Nama Pegawai : %s, NIP : %d, Lahir : %s",
+                    p.getName(), p.getNip(), p.getDate()));
         }
     }
 }
